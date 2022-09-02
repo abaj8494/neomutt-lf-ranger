@@ -6,13 +6,13 @@ This is a repo which documents how I integrated the lf terminal file manager int
 
 When attaching files to an email in neomutt, you can only select one file at a time and navigating through directory structures is cumbersome. 
 
-![]{img/problem.gif}
+![](img/problem.gif)
 
 # Solution
 
 Instead of using neomutt's file browser, use [lf](https://github.com/gokcehan/lf/) which will allow you to select multiple files. 
 
-![]{img/solution.gif}
+![](img/solution.gif)
 
 # Bonus Features
 
