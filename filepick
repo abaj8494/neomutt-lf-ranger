@@ -1,0 +1,27 @@
+#!/bin/sh
+
+tagfile=/Users/aayushbajaj/.local/share/lf/tags
+multisel=/Users/aayushbajaj/.config/mutt/multisel
+
+# uncomment below if using ranger
+# tmpfile=/Users/aayushbajaj/.config/mutt/tmpfile
+    
+if \[ -z "$1" \]; then
+	# for lf
+    lf &&    
+	printf '%b\n' "$(cat $tagfile)" | sed 's/..$//g' > $multisel
+    echo "$(awk 'BEGIN {printf "%s", "push "} {printf "%s", "<attach-file>\""$0"\"<enter>"}'  $multisel)" > $multisel
+	rm $tagfile
+	touch $tagfile
+	
+	# for ranger. uncomment below and comment above^
+	# ranger --choosefiles $tmpfile &&
+	# sed -i 's/ /^V /g' $tmpfile &&
+	# echo "$(awk 'BEGIN {printf "%s", "push "} {printf "%s", "<attach-file>\""$0"\"<enter>"}' $tmpfile)" > $tmpfile
+elif \[ $1 == "clean" \]; then
+	rm $multisel
+	# rm $tmpfile
+fi
+
+
+
